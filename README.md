@@ -1,50 +1,67 @@
-# React + TypeScript + Vite
+# ConnectUP — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**ConnectUP** is a full-stack event discovery and management platform developed as a Bachelor's thesis project at the Faculty of Mathematics and Computer Science, University of Bucharest.
 
-Currently, two official plugins are available:
+This repository contains the **frontend**: a single-page application built with **React, TypeScript, and Material UI**. It communicates with a separate REST API to support event discovery, participation, event hosting, and community interactions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech stack
 
-## Expanding the ESLint configuration
+- **React** — component-based user interface
+- **TypeScript** — typed application development
+- **Material UI** — consistent UI components and styling
+- **Google Maps API** — interactive event maps, location exploration, and directions
+- **Stripe.js** — secure payment collection for paid events
+- **REST API** — integration with the ConnectUP backend
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Key features
 
-- Configure the top-level `parserOptions` property like this:
+- **Account experience:** registration with email verification, login, password recovery, and profile management.
+- **Role-aware navigation:** dedicated experiences for members and administrators.
+- **Event discovery:** browse event cards, view event details, search by title, sort, and filter by tags, participation, paid/free status, and favorites.
+- **Location-based discovery:** interactive map, nearby events within a selected area, and directions to event venues.
+- **Participation:** join events, manage participation, and save favorites.
+- **Event hosting:** create and manage events with descriptions, dates, locations, images, and tags.
+- **Paid events:** checkout experience integrated with Stripe.js.
+- **Community features:** event reviews, ratings, questions, and user mentions.
+- **Event insights:** visual presentation of aggregated participant statistics for eligible organizers.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Architecture
+
+The frontend is a **single-page application (SPA)**. It renders the user interface and communicates with the backend REST API for authentication, business operations, and data persistence. The backend manages PostgreSQL data through Prisma and integrates with email, payments, and geocoding services.
+
+```
+React + TypeScript + Material UI
+             |
+             | REST API
+             v
+     ConnectUP Backend
+             |
+       PostgreSQL / Prisma
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Running locally
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+The application requires the separate **ConnectUP backend** to be configured and running.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+npm install
+```
+
+Then configure the frontend's environment variables as required by the actual source code (particularly the backend API URL and any client-side Google Maps / Stripe publishable keys).
+
+Run the development script defined in `package.json`: `npm run dev`
+
+
+## Backend integration
+
+This frontend is designed to work with the **ConnectUP Backend** repository.
+
+https://github.com/RaresDDB/licenta-backend
+
+## Project context
+
+Developed as an individual Bachelor's thesis project at the **University of Bucharest, Faculty of Mathematics and Computer Science**.
+
+**Author:** Costin-Rareș-Călin Pârlea
+
+> This repository showcases the client-side implementation of an academic full-stack project. No publicly hosted demo is currently provided.
