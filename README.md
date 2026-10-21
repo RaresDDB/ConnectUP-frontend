@@ -56,7 +56,7 @@ Run the development script defined in `package.json`: `npm run dev`
 
 This frontend is designed to work with the **ConnectUP Backend** repository.
 
-https://github.com/RaresDDB/licenta-backend
+https://github.com/RaresDDB/ConnectUP-backend
 
 ## Project context
 
