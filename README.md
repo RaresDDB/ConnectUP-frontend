@@ -64,4 +64,3 @@ Developed as an individual Bachelor's thesis project at the **University of Buch
 
 **Author:** Costin-Rareș-Călin Pârlea
 
-> This repository showcases the client-side implementation of an academic full-stack project. No publicly hosted demo is currently provided.
